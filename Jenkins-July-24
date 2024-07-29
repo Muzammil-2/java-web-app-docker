@@ -1,11 +1,23 @@
 pipeline {
     agent any
-
+    tools {
+  maven 'maven 3.2.1'
+}
+environment {
+  buildNumber = "BUILD_NUMBER"
+}
     stages {
         stage('Checkout_Code') {
             steps {
                 sh 'git credentialsId: 'github_id', url: 'https://github.com/Muzammil-2/java-web-app-docker.git''
             }
         }
+        stage('build_code') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+  
+  
     }
 }
