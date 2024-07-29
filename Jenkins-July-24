@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout_Code') {
             steps {
-                sh ''
+                sh 'git credentialsId: 'github_id', url: 'https://github.com/Muzammil-2/java-web-app-docker.git''
             }
         }
     }
